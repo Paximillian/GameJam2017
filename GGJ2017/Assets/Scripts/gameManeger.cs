@@ -28,17 +28,18 @@ public class gameManeger : MonoBehaviour {
     {
         //Vector3 camera = Camera.main.transform.position;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit objectHitted;
+       // RaycastHit objectHitted;
        // Vector3 offset = Input.mousePosition - Camera.main.ScreenToViewportPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Input.mousePosition.z));
-        if (Physics.Raycast(ray, out objectHitted, 1 << LayerMask.NameToLayer("plane")))
+        //if (Physics.Raycast(ray, out objectHitted, 1 << LayerMask.NameToLayer("plane")))
         {
 
           //  m_IsDragging.transform.position = objectHitted.point ;
            // m_IsDragging.transform.up = objectHitted.normal;
-            distance = Vector3.Distance(objectHitted.transform.position, Camera.main.transform.position);
+  
            Ray rayy = Camera.main.ScreenPointToRay(Input.mousePosition);
            Vector3 rayPoint = rayy.GetPoint(distance);
-           objectHitted.transform.position = rayPoint;
+            rayPoint.y = GameObject.FindGameObjectWithTag("plane").transform.position.y + 0.5f;
+            m_IsDragging.transform.position = rayPoint;
         }
 
         if(Input.GetMouseButton(0) == false)
@@ -69,6 +70,7 @@ public class gameManeger : MonoBehaviour {
             {
                 objectHitted.transform.GetComponent<TowerBehaviour>().StopAllCoroutines();
                 m_IsDragging = objectHitted.collider.gameObject;
+                distance = Vector3.Distance(objectHitted.transform.position, Camera.main.transform.position);
             }
 
         }

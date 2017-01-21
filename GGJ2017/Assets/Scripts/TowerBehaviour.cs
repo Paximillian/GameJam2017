@@ -26,14 +26,15 @@ public class TowerBehaviour : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        this.currentEnemy = null;
-        this.canFire = true;
+
         startLifeCondown();
 
     }
 
     public void startLifeCondown()
     {
+        this.currentEnemy = null;
+        this.canFire = true;
         StartCoroutine(this.Life());
     }
 

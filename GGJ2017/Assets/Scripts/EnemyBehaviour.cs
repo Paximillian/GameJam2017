@@ -50,7 +50,7 @@ public class EnemyBehaviour : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-
+        Debug.Log("shrmota");
         if (other.gameObject.transform.tag == "tower")
         {
             Destroy(other.gameObject);
