@@ -6,7 +6,6 @@
 -r:D:/Programs/Unity/Editor/Data/Managed/UnityEngine.dll
 -r:D:/Programs/Unity/Editor/Data/Managed/UnityEditor.dll
 -r:Library/ScriptAssemblies/Assembly-CSharp.dll
--r:D:/Programs/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll
 -r:D:/Programs/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll
 -r:D:/Programs/Unity/Editor/Data/UnityExtensions/Unity/EditorTestsRunner/Editor/nunit.framework.dll
 -r:D:/Programs/Unity/Editor/Data/UnityExtensions/Unity/EditorTestsRunner/Editor/UnityEditor.EditorTestsRunner.dll
@@ -21,7 +20,6 @@
 -r:D:/Programs/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/Editor/UnityEditor.Analytics.dll
 -r:D:/Programs/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/Editor/UnityEditor.HoloLens.dll
 -r:D:/Programs/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll
--r:D:/Programs/Unity/Editor/Data/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll
 -r:D:/Programs/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/Editor/UnityEditor.VR.dll
 -r:D:/Programs/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll
 -r:D:/Programs/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll

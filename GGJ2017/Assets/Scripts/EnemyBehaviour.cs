@@ -5,22 +5,22 @@ using UnityEngine.AI;
 
 public class EnemyBehaviour : MonoBehaviour {
 
-    public GameObject destination { get; set; }
-    public float stepDistance { get; set; }
-    private int maxHP = 1000;
+    public GameObject Destination { get; set; }
+    public float StepDistance { get; set; }
+    private int maxHP = 100;
     private int currentHP;
     private int minHP;
 
     // Use this for initialization
     void Start ()
     {
-        initializeEnemyDuck();
+        InitializeEnemy();
     }
 
     // Update is called once per frame
     void Update()
     {
-        moveTowardsDestination();
+        MoveTowardsDestination();
 
         if (currentHP <= minHP)
         {
@@ -35,17 +35,17 @@ public class EnemyBehaviour : MonoBehaviour {
     }
     
 
-    private void initializeEnemyDuck()
+    private void InitializeEnemy()
     {
-        stepDistance = 0.1f;
+        StepDistance = 0.1f;
         currentHP = maxHP;
         minHP = 0;
-        destination = GameObject.FindGameObjectWithTag("pkak") as GameObject;
+        Destination = GameObject.FindGameObjectWithTag("pkak") as GameObject;
     }
 
-    private void moveTowardsDestination()
+    private void MoveTowardsDestination()
     {
-        transform.position = Vector3.MoveTowards(transform.position, destination.transform.position, 0.1f);
+        transform.position = Vector3.MoveTowards(transform.position, Destination.transform.position, StepDistance);
     }
 
     void OnTriggerEnter(Collider other)

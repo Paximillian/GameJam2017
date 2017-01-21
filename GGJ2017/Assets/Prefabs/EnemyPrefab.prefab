@@ -23,9 +23,8 @@ GameObject:
   - component: {fileID: 65945583845357648}
   - component: {fileID: 23137178130212704}
   - component: {fileID: 114735479363992624}
-  - component: {fileID: 195035877281478944}
   m_Layer: 0
-  m_Name: EnemyDuckPrefab
+  m_Name: EnemyPrefab
   m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -105,23 +104,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5449876f22c5267438379435600ff94c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!195 &195035877281478944
-NavMeshAgent:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1590813755199102}
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Speed: 3
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 1
-  m_BaseOffset: 0.5
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4

@@ -27,9 +27,9 @@ public class ObjectGenerator : MonoBehaviour
     {
         while (isGameOver == false)
         {
-            GameObject objectToSpon = SpawnableObjects[Random.Range(0, SpawnableObjects.Length)];
-            Vector3 sponPoint = SpawnPoints[Random.Range(0, SpawnPoints.Length)].transform.position;
-            Instantiate(objectToSpon, sponPoint, objectToSpon.transform.rotation);
+            GameObject objectToSpawn = SpawnableObjects[Random.Range(0, SpawnableObjects.Length)];
+            Vector3 spawnPoint = SpawnPoints[Random.Range(0, SpawnPoints.Length)].transform.position;
+            Instantiate(objectToSpawn, spawnPoint, objectToSpawn.transform.rotation);
 
             yield return new WaitForSeconds(SpawnTime);
         }
