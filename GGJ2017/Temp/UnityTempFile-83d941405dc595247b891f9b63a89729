@@ -362,6 +362,7 @@ Assets/HoloToolkit/Utilities/Scripts/TimerScheduler.cs
 Assets/HoloToolkit/Utilities/Scripts/VectorRollingStatistics.cs
 Assets/HoloToolkit/Utilities/Scripts/WorldAnchorManager.cs
 Assets/Scripts/EnemyBehaviour.cs
+Assets/Scripts/MenuButtons.cs
 Assets/Scripts/ObjectGenerator.cs
 Assets/Scripts/PlayersProjectile1Behaviour.cs
 Assets/Scripts/TowerBehaviour.cs

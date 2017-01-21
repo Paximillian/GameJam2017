@@ -8,6 +8,7 @@ TagManager:
   - enemy
   - tower
   - plane
+  - pkak
   layers:
   - Default
   - TransparentFX

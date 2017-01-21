@@ -4,13 +4,11 @@
 -langversion:4
 -out:Temp/Assembly-CSharp.dll
 -r:D:/Programs/Unity/Editor/Data/Managed/UnityEngine.dll
--r:D:/Programs/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll
 -r:D:/Programs/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll
 -r:D:/Programs/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll
 -r:D:/Programs/Unity/Editor/Data/UnityExtensions/Unity/PlaymodeTestsRunner/UnityEngine.PlaymodeTestsRunner.dll
 -r:D:/Programs/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll
 -r:D:/Programs/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll
--r:D:/Programs/Unity/Editor/Data/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll
 -r:D:/Programs/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll
 -r:D:/Programs/Unity/Editor/Data/Managed/UnityEditor.dll
 -define:UNITY_5_3_OR_NEWER
@@ -364,6 +362,7 @@ Assets/HoloToolkit/Utilities/Scripts/TimerScheduler.cs
 Assets/HoloToolkit/Utilities/Scripts/VectorRollingStatistics.cs
 Assets/HoloToolkit/Utilities/Scripts/WorldAnchorManager.cs
 Assets/Scripts/EnemyBehaviour.cs
+Assets/Scripts/MenuButtons.cs
 Assets/Scripts/ObjectGenerator.cs
 Assets/Scripts/PlayersProjectile1Behaviour.cs
 Assets/Scripts/TowerBehaviour.cs
