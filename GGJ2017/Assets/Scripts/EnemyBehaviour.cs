@@ -7,10 +7,9 @@ public class EnemyBehaviour : MonoBehaviour {
 
     public GameObject destination { get; set; }
     public float stepDistance { get; set; }
-    private int maxHP = 100;
+    private int maxHP = 1000;
     private int currentHP;
     private int minHP;
-    private NavMeshAgent agent;
 
     // Use this for initialization
     void Start ()
@@ -39,14 +38,23 @@ public class EnemyBehaviour : MonoBehaviour {
     private void initializeEnemyDuck()
     {
         stepDistance = 0.1f;
-        agent = GetComponent<NavMeshAgent>();
         currentHP = maxHP;
         minHP = 0;
-        destination = GameObject.FindGameObjectWithTag("Pkak") as GameObject;
+        destination = GameObject.FindGameObjectWithTag("pkak") as GameObject;
     }
 
     private void moveTowardsDestination()
     {
-        agent.SetDestination(destination.transform.position);
+        transform.position = Vector3.MoveTowards(transform.position, destination.transform.position, 0.1f);
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+
+        if (other.gameObject.transform.tag == "tower")
+        {
+            Destroy(other.gameObject);
+            Destroy(gameObject);
+        }
     }
 }

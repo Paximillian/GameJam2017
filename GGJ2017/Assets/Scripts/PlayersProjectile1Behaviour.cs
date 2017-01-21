@@ -5,25 +5,31 @@ using UnityEngine.AI;
 
 public class PlayersProjectile1Behaviour : MonoBehaviour
 {
-
-    private NavMeshAgent movementAgent;
-    private GameObject enemyDuck { get; set; }
+    public GameObject Enemy { get; set; }
     public int projectileDamage { get; set; }
 
     // Use this for initialization
     void Start ()
     {
-        enemyDuck = GameObject.FindGameObjectWithTag("EnemyDuck1") as GameObject;
         projectileDamage = 25;
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
-        if (gameObject.transform.position == enemyDuck.transform.position)
+        if (Enemy == null)
         {
-            enemyDuck.GetComponent<EnemyBehaviour>().TakeHit(projectileDamage);
+            return;
+        }
+
+        if (gameObject.transform.position == Enemy.transform.position)
+        {
+            Enemy.GetComponent<EnemyBehaviour>().TakeHit(projectileDamage);
             Destroy(gameObject);
+        }
+        else
+        {
+            transform.position = Vector3.MoveTowards(transform.position, Enemy.transform.position, 0.5f);
         }
     }
 }

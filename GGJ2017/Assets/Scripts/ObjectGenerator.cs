@@ -7,10 +7,11 @@ public class ObjectGenerator : MonoBehaviour {
     public float sponTime;
     public GameObject[] sponbolObjects;
     public GameObject[] sponPoints;
-    
+    private bool isGameOver;
 
     // Use this for initialization
     void Start () {
+        isGameOver = false;
         StartCoroutine(SpawnObjects());
     }
 	
@@ -22,7 +23,7 @@ public class ObjectGenerator : MonoBehaviour {
 
     IEnumerator SpawnObjects()
     {
-        while (true)
+        while (isGameOver == false)
         {
             GameObject objectToSpon = sponbolObjects[Random.Range(0, sponbolObjects.Length)];
             Vector3 sponPoint = sponPoints[Random.Range(0, sponPoints.Length)].transform.position;
@@ -30,5 +31,10 @@ public class ObjectGenerator : MonoBehaviour {
 
             yield return new WaitForSeconds(sponTime);
         }
+    }
+
+    public void gameOver()
+    {
+        isGameOver = true;
     }
 }
