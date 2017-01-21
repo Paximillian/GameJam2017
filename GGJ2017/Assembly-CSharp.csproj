@@ -46,7 +46,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\EnemyBehaviour.cs" />
+     <Compile Include="Assets\Scripts\ObjectGenerator.cs" />
+     <Compile Include="Assets\Scripts\PlayersProjectile1Behaviour.cs" />
      <Compile Include="Assets\Scripts\TowerBehaviour.cs" />
+     <Compile Include="Assets\Scripts\gameManeger.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

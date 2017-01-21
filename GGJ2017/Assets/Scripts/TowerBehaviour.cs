@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,16 +7,49 @@ public class TowerBehaviour : MonoBehaviour
 {
     [SerializeField]
     private float damping = 1;
-    public string enemyTag ;
+    [SerializeField]
+    public string enemyTag;
+    [SerializeField]
     public float radius;
+    [SerializeField]
     public int towerHP;
+    [SerializeField]
+    private GameObject Bullet;
+    [SerializeField]
+    public float timeBetweenShots;
+    [SerializeField]
+    public float LifeTime;
+    private bool canFire;
     private GameObject currentEnemy;
+
 
     // Use this for initialization
     void Start()
     {
         this.currentEnemy = null;
+        this.canFire = true;
+        startLifeCondown();
 
+    }
+
+    public void startLifeCondown()
+    {
+        StartCoroutine(this.Life());
+    }
+
+    private IEnumerator Life()
+    {
+        Debug.Log(LifeTime);
+        yield return new WaitForSeconds(LifeTime);
+        
+        this.drown();
+
+    }
+
+    private void drown()
+    {
+        // add animations and sound for drowining//
+        Destroy(gameObject);
     }
 
     // Update is called once per frame
@@ -23,19 +57,36 @@ public class TowerBehaviour : MonoBehaviour
     {
         if (this.currentEnemy == null)
         {
+           // Debug.Log("lost enemy");
             this.currentEnemy = this.getNearestEnemy();
-            Debug.Log(currentEnemy.transform.position.ToString());
+
         }
         else
         {
-            float curentEnemyDistance = Vector3.Distance(this.transform.position, currentEnemy.transform.position); 
+            this.lookAtEnemy(currentEnemy);
+            float curentEnemyDistance = Vector3.Distance(this.transform.position, currentEnemy.transform.position);
             if (curentEnemyDistance >= radius)
             {
                 currentEnemy = null;
             }
         }
-        this.changeHeading(currentEnemy);
-        this.fire(currentEnemy);
+
+        if (canFire == true)
+        {
+            this.fire(currentEnemy);
+            canFire = false;
+            StartCoroutine( canFireWaitTime());
+
+        }
+
+    }
+    private IEnumerator canFireWaitTime()
+    {
+        //while (true)
+        {
+            yield return new WaitForSeconds(this.timeBetweenShots);
+            canFire = true;
+        }
 
     }
     private void fire(GameObject enemy)
@@ -46,10 +97,12 @@ public class TowerBehaviour : MonoBehaviour
         }
         else
         {
-            // add bullet with enemy object as destenation
+            var go = Instantiate(Bullet, this.transform.position, new Quaternion());
+            go.GetComponent<PlayersProjectile1Behaviour>().Enemy = enemy;
 
         }
     }
+
     private GameObject getNearestEnemy()
     {
         // scans objects
@@ -73,12 +126,20 @@ public class TowerBehaviour : MonoBehaviour
         }
         return closestEnemy;
     }
-    private void changeHeading(GameObject enemy)
+    private void lookAtEnemy(GameObject enemy)
     {
-        Vector3 relativeVecotor = this.transform.position - enemy.transform.position;
-        relativeVecotor.y = 0;
-        var rotationFactor = Quaternion.LookRotation(relativeVecotor);
-        this.transform.rotation = Quaternion.Slerp(this.transform.rotation, rotationFactor, Time.deltaTime * damping);
+        if (enemy == null)
+        {
+
+        }
+        else
+        {
+            Vector3 relativeVecotor = this.transform.position - enemy.transform.position;
+            relativeVecotor.y = 0;
+            var rotationFactor = Quaternion.LookRotation(relativeVecotor);
+            this.transform.rotation = Quaternion.Slerp(this.transform.rotation, rotationFactor, Time.deltaTime * damping);
+        }
+
 
     }
-}   
+} 
